@@ -35,7 +35,6 @@ class Weather extends React.Component {
       console.log(API_WEATHER+cityName);
       
       const citiesData = fetch(API_WEATHER+cityName)
-        .then().catch(err => console.warn(`ERROR occurs : ${err.message}`))
         .then((res) => res.json())
         .then((data) => {
           this.setState({
@@ -46,7 +45,7 @@ class Weather extends React.Component {
             icon : data.weather[0].icon
           })
           console.log(data.weather[0].main);
-        });
+        }).catch(err => console.warn(`ERROR occurs : ${err.message}`));
       }
       render() {
           return(

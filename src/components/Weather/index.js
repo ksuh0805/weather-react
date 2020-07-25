@@ -22,9 +22,9 @@ const API_WEATHER = "http://localhost:8888/weather-service/weathers?cityName=";
 
 class Weather extends React.Component {
     state = {
-        cityName: "a",
-        weather: "b",
-        weatherDescription: "c",
+        cityName: "",
+        weather: "",
+        weatherDescription: "",
         temperature: 0,
         icon : ""
     };
@@ -51,13 +51,10 @@ class Weather extends React.Component {
       render() {
           return(
             <div>
-              <h1>city : {this.state.cityName}</h1>
-              <img src= "http://openweathermap.org/img/wn/04n@2x.png" alt="Weather icon"></img>
-              <h1>weather : {this.state.weather}</h1>
-              <h1>description : {this.state.weatherDescription}</h1>
-              <h1>temperature : {this.state.temperature}</h1>
-              <h1>icon : {this.state.icon}</h1>
-             
+              <i>The current weather of</i><h1> {this.state.cityName}</h1><p><i>is..</i></p>
+              <img src= {`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`} width ="250px" height = "250px" alt="Weather icon"></img>
+              <h2>{this.state.weather} ( {this.state.weatherDescription} )</h2>
+              <h2>{this.state.temperature}</h2>
             </div>
           )
       }
